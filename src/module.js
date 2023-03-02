@@ -1,6 +1,6 @@
-console.log("module js")
+console.log('module js');
 
 async function start() {
-   return await Promise.resolve("work !")
+  return await Promise.resolve('work !');
 }
-start().then(console.log)
+start().then(console.log);
