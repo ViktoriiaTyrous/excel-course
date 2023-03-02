@@ -7,6 +7,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isProd = process.env.NODE_ENV === "production"
 const isDev = !isProd
 const filename = ext => isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`
+/**
+ * Додає два числа.
+ *
+ * @param {string} a - .
+ * @param {number} b - друге число.
+ * @returns {number} - сума a і b.
+ */
+
 const jsLoader = () => {
   const loaders = [
     {
@@ -17,7 +25,13 @@ const jsLoader = () => {
     }
   ]
   if(isDev) {
-    loaders.push("eslint-loader")
+    let eslintLoader = {
+      loader: "eslint-loader",
+      options: {
+        fix: true
+      }
+    }
+    loaders.push(eslintLoader);
   }
   return loaders
 }
